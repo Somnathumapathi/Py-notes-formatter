@@ -24,7 +24,7 @@ def rotateImage(directory):
         if angle > 0:
             angle -= 180
         
-        rotImg = img.rotate(angle, expand=True)
+        rotImg = img.rotate(angle)
 
         # if angle != 0 or angle !=180:
         #     rotImg = img.rotate(360-angle, expand= True)
