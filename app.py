@@ -32,7 +32,7 @@ def rotate_images(directory):
         if angle > 0:
             angle -= 180
         
-        rotImg = img.rotate(angle)
+        rotImg = img.rotate(angle, expand=True)
 
         # if angle != 0 or angle !=180:
         #     rotImg = img.rotate(360-angle, expand= True)
@@ -47,11 +47,18 @@ def rotate_images(directory):
         
         temp_file = os.path.join(directory, f'temp_{imageFile}')
         rotImg.save(temp_file)
+        imgW, imgH = rotImg.size
+        
+        pageW = pdf.w
+
+        if imgW > pageW:
+            scalingFactor = pageW / imgH
+            imgH *= scalingFactor
         
         pdf.add_page()
-        pdf.image(temp_file, 0, 0, pdf.w, pdf.h)
+        pdf.image(temp_file, x=0, y=0, w=pageW, h=imgH)
         os.remove(temp_file)
-    
+
     pdf_file = os.path.join(directory, 'notes.pdf')
     print("Temporary directory:", directory)
     print("PDF file path:", pdf_file)
