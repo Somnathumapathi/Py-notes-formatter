@@ -4,20 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/static.css">
-    <title>Document</title>
+    <title>Py-notes-formatter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        h1 {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        h2 {
+            padding: 20px;
+            background-color: rgb(17, 1, 45);
+            border-radius: 10pt;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgb(30, 2, 73);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        form {
+            margin-top: 20px;
+            background-color: rgb(17, 1, 45);
+            border-radius: 10pt;
+        }
+
+        label {
+            font-weight: bold;
+            background-color: rgb(17, 1, 45);
+    
+        }
+
+        input[type="file"] {
+            margin-top: 8px;
+            padding-left: 10px;
+        }
+
+        button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #031273c2;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            background-color: rgb(17, 1, 45);
+            border-radius: 10pt;
+        }
+    </style>
 </head>
 <body>
-    <h1>HomePage</h1>
+    <h1>Welcome to Py-notes-formatter</h1>
+    <h2 style="background: black; text-align: center;">Happy to see you visiting this site to help yourself or your friends</h2>
     <div class="container">
-        <h1 class="mt-5">Upload a ZIP Folder of Images</h1>
+        <h2>Upload a ZIP Folder of Images</h2>
         <form method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="file">Choose ZIP File</label>
-                <input type="file" class="form-control-file" id="file" name="file" accept=".zip">
+            <div class="form-group"><br/>
+                <label for="file" style="padding: 10px;">Choose ZIP File</label><br/>
+                <input type="file" id="file" name="file" accept=".zip">
             </div>
-            <button type="submit" class="btn btn-primary">Upload and Convert</button>
+            
+            <button type="submit" style="text-align: center">Format</button>
         </form>
     </div>
-
+    <!-- <div style="bottom: 0;">By Somnath</div> -->
 </body>
 </html>
