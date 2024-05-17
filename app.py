@@ -80,16 +80,16 @@ def notesFormate():
             print('working..........')
             pdfName = os.path.basename(pdfFile)
             
-            return redirect(url_for('downloadPage', filename = pdfName))
+            return redirect(url_for('downloadPage', filename = pdfName, tempDir = tempDir))
     return render_template('homepage.html')
 
-@app.route('/downloadsuccess/<filename>')
-def downloadPage(filename):
-    return render_template('downloadpage.html', filename = filename)
+@app.route('/downloadsuccess/<filename>/<tempDir>')
+def downloadPage(filename, tempDir):
+    return render_template('downloadpage.html', filename = filename, tempDir = tempDir)
 
-@app.route('/download/<filename>')
+@app.route('/download/<filename>/<tempDir>')
 def download(filename, tempDir):
-    pdf_file = os.path.join(tempfile.gettempdir(),filename)
+    pdf_file = os.path.join(tempfile.gettempdir(), tempDir,filename)
     print(pdf_file)
     return send_file(pdf_file, as_attachment=True)
 
