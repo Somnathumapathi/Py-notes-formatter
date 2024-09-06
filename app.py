@@ -56,7 +56,7 @@ def rotate_images(directory):
             imgH *= scalingFactor
         
         pdf.add_page()
-        pdf.image(temp_file, x=0, y=0, w=pageW, h=imgH)
+        pdf.image(temp_file, x=0, y=0, w=pageW, h=pdf.h)
         os.remove(temp_file)
 
     pdf_file = os.path.join(directory, 'notes.pdf')
